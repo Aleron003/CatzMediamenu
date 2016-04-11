@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="23"
+    density="tvdpi"
+    format="7"
+    timestamp="1317742552407" >
+
+    <task
+        name="javac"
+        duration="1124" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="52" />
+    <task
+        name="verifier"
+        duration="15" />
+
+    <artifact
+        location="/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/res/resources-debug.ap_"
+        type="RESOURCES" />
+    <artifact
+        location="/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+        type="DEX" />
+
+    <build timestamp="387061702673" >
+        <artifact
+            location="/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="1317742552407" >
+        <artifact
+            location="/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/res/resources-debug.ap_"
+            type="RESOURCES" />
+        <artifact
+            location="/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>

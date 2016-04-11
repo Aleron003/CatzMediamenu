@@ -1,0 +1,3 @@
+CHANGED,/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
+CHANGED,/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/menu/catz/aaron/catzmenu/R$id$override.class
+CHANGED,/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/menu/catz/aaron/catzmenu/MainActivity$override.class
