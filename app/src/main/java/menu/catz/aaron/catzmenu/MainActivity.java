@@ -1,5 +1,6 @@
 package menu.catz.aaron.catzmenu;
 
+import android.graphics.PixelFormat;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,18 +12,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 
 import java.io.IOException;
 
 //Navigation menu template
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SurfaceHolder.Callback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        MediaPlayer mPlayer = new MediaPlayer();
-        MediaPlayer sharkPlayer = new MediaPlayer();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //#garbageday
+
     }
 
     @Override
@@ -102,13 +106,25 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    public static void playvideo() throws IOException {
+    public void playvideo() throws IOException {
 
         //Should play video if it works right.
-
-        String sUrl = "https://www.dropbox.com/s/kg4c1nrwbwxybro/Tankgif3.mp4?dl=1"; //URL for a video file
-
         MediaPlayer mPlayer = new MediaPlayer();
+
+
+        getWindow().setFormat(PixelFormat.UNKNOWN);
+        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.surfaceview);
+        SurfaceHolder surfaceHolder = surfaceView.getHolder();
+        surfaceHolder.addCallback(this);
+        surfaceHolder.setFixedSize(176, 144);
+        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+
+        mPlayer.setDisplay(surfaceHolder);
+
+        MediaPlayer mPlayer = MediaPlayer.create(context, R.raw.Tankgif3.mp4);
+
+
+
 
         mPlayer.reset();
         System.out.println("Resetting");
@@ -142,4 +158,18 @@ public class MainActivity extends AppCompatActivity
         System.out.println("Playing");
     }
 
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+
+    }
 }

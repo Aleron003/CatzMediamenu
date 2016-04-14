@@ -8,6 +8,17 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <SurfaceView
+            android:id="@+id/surfaceview"
+            android:layout_width="640dp"
+            android:layout_height="480dp" />
+
+    </RelativeLayout>
+
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
@@ -21,5 +32,6 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
+
 
 </android.support.v4.widget.DrawerLayout>
