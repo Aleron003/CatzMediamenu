@@ -1,5 +1,6 @@
 package menu.catz.aaron.catzmenu;
 
+import android.content.Context;
 import android.graphics.PixelFormat;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -19,7 +20,10 @@ import java.io.IOException;
 
 //Navigation menu template
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SurfaceHolder.Callback {
+        implements NavigationView.OnNavigationItemSelectedListener, MediaPlayer.OnPreparedListener, SurfaceHolder.Callback {
+
+    SurfaceView surfaceView;
+    SurfaceHolder surfaceHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,18 @@ public class MainActivity extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Surface stuff
+
+        getWindow().setFormat(PixelFormat.UNKNOWN);
+
+        surfaceView = (SurfaceView) findViewById(R.id.surfaceview);
+        surfaceHolder = surfaceView.getHolder();
+        surfaceHolder.addCallback(this);
+        System.out.println("axaxa ))");
+
+        //sidebar stuff
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -35,9 +51,6 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        //#garbageday
-
     }
 
     @Override
@@ -105,37 +118,11 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     public void playvideo() throws IOException {
 
         //Should play video if it works right.
-        MediaPlayer mPlayer = new MediaPlayer();
 
 
-        getWindow().setFormat(PixelFormat.UNKNOWN);
-        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.surfaceview);
-        SurfaceHolder surfaceHolder = surfaceView.getHolder();
-        surfaceHolder.addCallback(this);
-        surfaceHolder.setFixedSize(176, 144);
-        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
-        mPlayer.setDisplay(surfaceHolder);
-
-        MediaPlayer mPlayer = MediaPlayer.create(context, R.raw.Tankgif3.mp4);
-
-
-
-
-        mPlayer.reset();
-        System.out.println("Resetting");
-        mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        System.out.println("Setting stream type");
-        mPlayer.setDataSource(sUrl);
-        System.out.println("Grabbing from URL");
-        mPlayer.prepare();
-        System.out.println("Preparing");
-        mPlayer.start();
-        System.out.println("Playing");
     }
 
     public static void playexplosion() throws IOException {
@@ -159,9 +146,20 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void surfaceCreated(SurfaceHolder holder) {
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
 
+        MediaPlayer mPlayer = MediaPlayer.create(this, R.raw.mig);
+        mPlayer.setDisplay(surfaceHolder);
+        try {
+            mPlayer.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mPlayer.setOnPreparedListener(this);
+        mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
     }
+
+
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
@@ -170,6 +168,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
+
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
 
     }
 }

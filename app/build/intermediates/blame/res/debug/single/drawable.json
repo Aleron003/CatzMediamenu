@@ -156,12 +156,12 @@
         "source": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
-        "merged": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
-        "source": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable/abc_btn_radio_material.xml"
-    },
-    {
         "merged": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
         "source": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/drawable/common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
+        "source": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/res/drawable/abc_btn_radio_material.xml"
     },
     {
         "merged": "/home/ppridham/AndroidStudioProjects/Catzmediamenu/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
